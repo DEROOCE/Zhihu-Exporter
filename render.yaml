@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: zhihu-backup
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./Dockerfile
+    port: 5001
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
