@@ -1,9 +1,8 @@
 [railway]
-  doctrine = "docker"
   version = 2
 
 [build]
-  builder = "docker"
+  dockerfile = "Dockerfile"
 
 [deploy]
   numReplicas = 1
