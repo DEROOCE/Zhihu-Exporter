@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     libcairo2 \
     libasound2 \
     libatspi2.0-0 \
+    fonts-dejavu-core \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -33,8 +34,8 @@ COPY requirements.txt .
 # 安装Python依赖
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 安装Playwright浏览器
-RUN playwright install --with-deps chromium
+# 安装Playwright浏览器（不安装系统依赖，使用手动安装的）
+RUN playwright install chromium
 
 # 复制应用代码
 COPY . .
